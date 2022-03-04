@@ -196,4 +196,8 @@ ament_export_dependencies(fp)
 ament_export_dependencies(range-v3)
 ament_export_dependencies(moveit_ros_planning)
 
+ament_export_dependencies(fmt)
+ament_export_dependencies(fp)
+ament_export_dependencies(range-v3)
+
 ament_package()
