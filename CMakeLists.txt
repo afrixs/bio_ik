@@ -53,6 +53,8 @@ find_package(range-v3 REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(tf2_kdl REQUIRED)
 find_package(kdl_parser REQUIRED)
+find_package(backward_ros REQUIRED)
+find_package(fcl REQUIRED)
 
 # TODO(tylerjw): re-enable these
 # find_package(OpenMP)
@@ -121,6 +123,8 @@ target_link_libraries(
     moveit_ros_planning::moveit_rdf_loader
     range-v3::range-v3
     rclcpp::rclcpp
+    fcl
+    tf2_kdl::tf2_kdl
     # TODO(tylerjw): what does this change?
     -static-libgcc
     -static-libstdc++
@@ -139,6 +143,8 @@ target_link_libraries(
     project_options
     project_warnings
     bio_ik
+    fcl
+    tf2_kdl
     # TODO(tylerjw): what does this change?
     -static-libgcc
     -static-libstdc++
