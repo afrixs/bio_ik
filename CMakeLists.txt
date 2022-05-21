@@ -51,6 +51,8 @@ find_package(moveit_ros_planning REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(range-v3 REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(tf2_kdl REQUIRED)
+find_package(kdl_parser REQUIRED)
 
 # TODO(tylerjw): re-enable these
 # find_package(OpenMP)
@@ -100,11 +102,10 @@ set(SOURCES
 #     ${FANN_INCLUDE_DIRS}
 #     ${CPPOPTLIB_INCLUDE_DIRS}
 # )
-
 add_library(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
+  $<INSTALL_INTERFACE:include> ${tf2_kdl_INCLUDE_DIRS} ${kdl_parser_INCLUDE_DIRS})
 target_link_libraries(
   ${PROJECT_NAME}
   PRIVATE
@@ -193,5 +194,6 @@ ament_export_targets(
 ament_export_dependencies(fmt)
 ament_export_dependencies(fp)
 ament_export_dependencies(range-v3)
+ament_export_dependencies(moveit_ros_planning)
 
 ament_package()
