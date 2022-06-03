@@ -41,7 +41,7 @@
 #include <x86intrin.h>
 
 #if (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 9))
-#define FUNCTION_MULTIVERSIONING 1
+#define FUNCTION_MULTIVERSIONING 0
 #else
 #define FUNCTION_MULTIVERSIONING 0
 #endif
