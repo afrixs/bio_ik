@@ -53,7 +53,6 @@ find_package(range-v3 REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(tf2_kdl REQUIRED)
 find_package(kdl_parser REQUIRED)
-find_package(backward_ros REQUIRED)
 find_package(fcl REQUIRED)
 
 # TODO(tylerjw): re-enable these
