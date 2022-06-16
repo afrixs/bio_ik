@@ -53,6 +53,7 @@ find_package(range-v3 REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(tf2_kdl REQUIRED)
 find_package(kdl_parser REQUIRED)
+find_package(fcl REQUIRED)
 
 # TODO(tylerjw): re-enable these
 # find_package(OpenMP)
@@ -121,9 +122,8 @@ target_link_libraries(
     moveit_ros_planning::moveit_rdf_loader
     range-v3::range-v3
     rclcpp::rclcpp
-    # TODO(tylerjw): what does this change?
-    -static-libgcc
-    -static-libstdc++
+    fcl
+    tf2_kdl::tf2_kdl
 )
 
 add_library(${PROJECT_NAME}_plugin
@@ -139,9 +139,6 @@ target_link_libraries(
     project_options
     project_warnings
     bio_ik
-    # TODO(tylerjw): what does this change?
-    -static-libgcc
-    -static-libstdc++
 )
 
 option(BUILD_TESTING "Enable Test Builds" ON)
@@ -195,5 +192,10 @@ ament_export_dependencies(fmt)
 ament_export_dependencies(fp)
 ament_export_dependencies(range-v3)
 ament_export_dependencies(moveit_ros_planning)
+
+ament_export_dependencies(fmt)
+ament_export_dependencies(fp)
+ament_export_dependencies(range-v3)
+ament_export_dependencies(tf2_kdl)
 
 ament_package()
