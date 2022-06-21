@@ -161,10 +161,8 @@ endif()
 # which is appropriate when building the dll but not consuming it.
 # target_compile_definitions(${PROJECT_NAME} PRIVATE "${PROJECT_NAME}_BUILDING_LIBRARY")
 
-install(
-  DIRECTORY include/
-  DESTINATION include/${PROJECT_NAME}
-)
+install(DIRECTORY include/
+    DESTINATION include)
 install(
   TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_plugin
   EXPORT export_${PROJECT_NAME}
