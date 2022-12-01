@@ -35,6 +35,9 @@ enable_sanitizers(project_options)
 # enable doxygen
 include(cmake/Doxygen.cmake)
 enable_doxygen()
+add_compile_options($<$<CONFIG:Release>:-O3>)
+add_compile_options($<$<CONFIG:Release>:-ftree-vectorize>)
+add_compile_options($<$<CONFIG:Release>:-ffast-math>)
 
 # allow for static analysis options
 include(cmake/StaticAnalyzers.cmake)
